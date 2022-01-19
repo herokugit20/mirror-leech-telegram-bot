@@ -26,7 +26,7 @@ def list_drive(update, context):
     except IndexError:
         sendMessage('Send a search key along with command', context.bot, update)
 
-list_handler = CommandHandler(BotCommands.ListCommand, list_buttons, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
+list_handler = CommandHandler(BotCommands.ListCommand, list_drive, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 list_type_handler = CallbackQueryHandler(select_type, pattern="types", run_async=True)
 dispatcher.add_handler(list_handler)
 dispatcher.add_handler(list_type_handler)
